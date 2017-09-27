@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="public/css/style.css" rel="stylesheet">
+  <script src="public/js/jquery-2.1.4.min.js"></script>
+  <script src="public/js/bootstrap.min.js"></script>
+  <script src="public/js/form.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <script type="text/javascript">
+
+
+
+
+    $(function(){
+      $('#checkbox').click(function(){
+
+       var zfpaystatus=$("#zfpaystatus").val();
+       var type = $("#type").val();
+       var zfbid = $("#zfbid").val();
+       var zfbnum=$("#zfbnum").val();
+         //alert(zfbnum);
+//var zfbnum=1;
+var checkMSM = "index.php?c=user&m=jiaoyiajax";
+var url = checkMSM+"";
+//alert(zfbid);
+if(zfbnum == ""  ){
+  alert("帐号不能为空");
+  return false;
+}
+if($('input[name="checkbox"]').prop("checked"))
+{
+ $.ajax({
+  type : "POST",
+  url : url,
+  data : "type="+type+"&zfbid="+zfbid+"&qqqq="+zfbnum+"&zfpaystatus="+zfpaystatus,
+  dataType : "json",
+  success : function(data){
+               //alert("9999999999");
+               alert(data);
+               window.location.href ="http://www.baidu.com";
+             }
+           });
+
+}
+
+          //  alert('未选中');
+        });
+
+
+    })
+
+
+  </script>
+
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top navx" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+          <p class="navtext text-center">修改支付宝</p>
+        </div>
+        <div class="col-xs-2">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid mar-top50">
+   <div class="row mar-top15">
+    <div class="col-xs-12">
+      <form id="chgmyinfo" method="POST" action="index.php?c=user&m=payzfb" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <input type="text" class="form-control hidden" name="userid" value="">
+          <label for="username">支付宝帐号<font color="red">*</font></label>
+
+          <input type="text" class="form-control" name="zfbnum" id="zfbnum" placeholder="{$userinfo.zt_zfpay}" >
+        </div>
+        <input type="hidden" class="form-control hidden" id="zfpaystatus" name="zfpaystatus" value={$zfpaystatus}>
+        <input type="hidden" class="form-control hidden" id="zfbid" name="zfbid" value={$zfbid}>
+        <input type="hidden" class="form-control hidden" id="type" name="type" value="zfb">
+
+
+        {if  $zfpaystatus eq 0}
+        <div class="form-group">
+          <label>
+            {if $jiaoyistatus eq 0}
+            <input type="checkbox" id="checkbox"  name="checkbox"  >选为默认交易方式
+            {/if}
+            {if $jiaoyistatus eq 1}
+            <input type="checkbox" id="checkbox"  name="checkbox"  checked="true">选为默认交易方式
+            {/if}
+          </label>
+          <center>
+            <input class="btn btn-lg" style="background:#F39700;color:white"  type="submit"  name="tj" value="添&nbsp;&nbsp;&nbsp;加">
+
+            {else if  $zfpaystatus eq 1}
+            <div class="form-group">
+              <label>
+               {if $jiaoyistatus eq 0}
+               <input type="checkbox" id="checkbox"  name="checkbox"  >选为默认交易方式
+               {/if}
+               {if $jiaoyistatus eq 1}
+               <input type="checkbox" id="checkbox"  name="checkbox"  checked="true">选为默认交易方式
+               {/if}
+             </label>
+
+
+           </div>
+           <center>
+            <input class="btn btn-lg" style="background:#F39700;color:white"  type="submit"  name="tj" value="更&nbsp;&nbsp;&nbsp;新">
+
+            {/if}
+          </center>
+
+
+
+
+        </form>
+        <br><br><br> <br><br><br>
+      </div>
+    </div>
+  </div>
+  {include file="public/footer.html"}
+</body>
+</html>

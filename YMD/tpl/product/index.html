@@ -1,0 +1,11 @@
+
+
+
+
+{foreach from=$allinfo key=num  item="v" name=elementName}
+<div onclick="javascript:location.href='admin.php?c=product&m=detail&id={$v['id']}'">
+<span>{$v['id']}</span>
+<span>{$v['zt_pro_company']}</span>
+
+</div>
+{/foreach}

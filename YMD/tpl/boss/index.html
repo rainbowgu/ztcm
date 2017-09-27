@@ -1,0 +1,30 @@
+
+{if $orderinfo eq ""}
+别看了，没有
+{/if}
+{if $orderinfo neq ""}
+{foreach from=$orderinfo key=num  item="v" name=elementName}
+<div >
+<span>{$v['id']}</span>
+<span>{$v['zt_user_id']}</span>
+<span ><img  src="public/upimg/{$v['zt_upload']}" height="30px" width="30px" ></span>
+<button onclick="javascript:location.href='index.php?c=boss&m=orderdetail&id={$v['id']}'">查看详情</button>
+
+<button onclick="javascript:location.href='index.php?c=boss&m=jinenum&id={$v['id']}'">成功</button>
+
+<button onclick="javascript:location.href='index.php?c=boss&m=shenhefail&id={$v['id']}'">失败</button>
+</div>
+{/foreach}
+{/if}
+
+<br> <br><br><br><br><br>
+{foreach from=$orderinfo2 key=num  item="v" name=elementName}
+<div >
+<span>{$v['id']}</span>
+<span>{$v['zt_user_id']}</span>
+<span ><img  src="public/upimg/{$v['zt_upload']}" height="30px" width="30px" ></span>
+<button onclick="javascript:location.href='index.php?c=boss&m=orderdetail&id={$v['id']}'">查看详情</button>
+
+
+</div>
+{/foreach}

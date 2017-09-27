@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default navbar-fixed-bottom " role="navigation">
+    <div class="row center-block">
+        {if $footer|default:'0'=='1'}
+        <div class="padnone col-xs-4 col-sm-4 col-md-4">
+            <span class="col-xs-offset-4"><a href="index.php?c=index&m=index"><img class="icon" src="public/img/index3.png"></a></span>
+        </div>
+         {else}
+          <div class="padnone col-xs-4 col-sm-4 col-md-4">
+            <span class="col-xs-offset-4"><a href="index.php?c=index&m=index"><img class="icon" src="public/img/index2.png"></a></span>
+        </div>
+        {/if}
+        
+         {if $footer|default:'0'=='2'}
+        <div class="padnone col-xs-4 col-sm-4 col-md-4">
+            <span class="col-xs-offset-4"><a href="index.php?c=user&m=order"><img class="icon" src="public/img/xiangmu3.png"></a></span>
+        </div>
+         {else}
+         <div class="padnone col-xs-4 col-sm-4 col-md-4">
+            <span class="col-xs-offset-4"><a href="index.php?c=user&m=order"><img class="icon" src="public/img/xiangmu2.png"></a></span>
+        </div>
+        {/if}
+         {if $footer|default:'0'=='3'}
+        <div class="padnone col-xs-4 col-sm-4 col-md-4">
+            <span class="col-xs-offset-4"><a href="index.php?c=user&m=index"><img class="icon" src="public/img/my3.png"></a></span>
+        </div>
+        {else}
+          <div class="padnone col-xs-4 col-sm-4 col-md-4">
+            <span class="col-xs-offset-4"><a href="index.php?c=user&m=index"><img class="icon" src="public/img/my2.png"></a></span>
+        </div>
+        {/if}
+    </div>
+
+    
+</nav>

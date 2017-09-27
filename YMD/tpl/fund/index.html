@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link href="public/css/bootstrap.min.css" rel="stylesheet">
+	<link href="public/css/style.css" rel="stylesheet">
+	<script src="public/js/jquery-2.1.4.min.js"></script>
+	<script src="public/js/bootstrap.min.js"></script>
+	<script src="public/js/form.js"></script>
+	<meta name="viewport"
+	content="width=device-width,initial-scale=1,user-scalable=no">
+</head>
+<style type="text/css">
+	body {
+		background-color: #ffffff;
+	}
+
+	.thumbnail .caption {
+		padding: 0;
+	}
+
+	.thumbnail {
+		margin-bottom: 0;
+		border: none;
+		border-right: 1px solid #ddd;
+	}
+	.head{
+		background-color:#EA5414
+	}
+</style>
+<body>
+	<!--nav class="navbar navbar-default navbar-fixed-top navx"
+		role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="col-xs-2 navbar-left"></div>
+				<div class="col-xs-8">
+					<p class="navtext text-center">个人中心</p>
+				</div>
+				<div class="col-xs-2 navbar-right">
+					<a href=""> <img class="icon-navright"
+						src="public/img/index.png">
+					</a>
+				</div>
+			</div>
+		</div>
+	</nav-->
+
+	<div class="container-fluid  head">
+		<a href="index.php?c=fund&m=atm&e={$fundtotalinfo.user_e_num}"><img
+			class="headpic center-block img-circle" src="public/tixian.png" /></a>
+
+			<p class="username text-center">余额：{$xianshinum} 冻结: {$coolnum}</p>
+		</div>
+		<br >
+
+
+		<div class="container-fluid">
+			{foreach from=$fundinfo key=num item="v" name=elementName}
+			<div class="row">
+				<div class="panel panel-default panelx">
+					<div class="list-group">
+
+						<span class="col-xs-12">
+							{if $v.zt_type==5}
+							{$v.zt_pro_name}
+							<span style="float:right;">{$v.zt_datetime|date_format:"%Y-%m-%d"}</span></span>
+							<span class="col-xs-12" > 邀请返利 <span style="float:right;">
+								{/if}
+								{if $v.zt_type==1}
+
+								提现申请中
+								<span style="float:right;">{$v.zt_datetime|date_format:"%Y-%m-%d"}</span></span>
+								<span class="col-xs-12" >
+									<span style="float:right;">
+										{/if}
+										{if $v.zt_type==3}
+										提现申请中
+										<span style="float:right;">{$v.zt_datetime|date_format:"%Y-%m-%d"}</span></span>
+										<span class="col-xs-12" > <span style="float:right;">
+											{/if}
+											{if $v.zt_type==4}
+											提现成功
+											<span style="float:right;">{$v.zt_datetime|date_format:"%Y-%m-%d"}</span></span>
+											<span class="col-xs-12" > <span style="float:right;">
+												{/if}
+												{if $v.zt_type==2}
+												{$v.zt_pro_name}
+												<span style="float:right;">{$v.zt_datetime|date_format:"%Y-%m-%d"}</span></span>
+												<span class="col-xs-12" >手机号:{$v.zt_order_tel} <span style="float:right;">
+													{/if}
+													
+													
+													{if $v.zt_type==1}
+													-
+													{/if}
+													{if $v.zt_type==3}
+													-
+													{/if}
+													{if $v.zt_type==2}
+													+{/if}
+													{if $v.zt_type==5}
+													+{/if}
+
+
+
+
+													{$v.zt_money}
+												</span></span>
+					 <!--  span class="col-xs-12"><span style="float:right;">
+					{if $v.zt_type==2}
+					
+					项目返利{/if}
+					{if $v.zt_type==1}
+					提现成功
+					{/if}
+					 {if $v.zt_type==3}
+					 提现申请
+					{/if}
+					</span> 
+				</span>-->
+				
+				
+
+			</div>  <hr style="margin:1px 1px 1px 1px;height:1px">
+		</div>
+	</div>
+
+
+
+
+	{/foreach}
+
+
+</div>
+<br ><br ><br ><br ><br ><br ><br >
+{include file="public/footer.html"}
+</body>
+</html>
+
+

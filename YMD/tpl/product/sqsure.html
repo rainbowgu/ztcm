@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link href="public/css/bootstrap.min.css" rel="stylesheet">
+<link href="public/css/style.css" rel="stylesheet">
+<script src="public/js/jquery-2.1.4.min.js"></script>
+<script src="public/js/bootstrap.min.js"></script>
+<script src="public/js/form.js"></script>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,user-scalable=no">
+</head>
+<script type='text/javascript'>
+    
+
+
+    var checkMSM = "../Components/SMS/SendTemplateSMS.php";
+    var hiddenCode = "";
+    var clicktag = 0;
+
+
+
+
+
+var countdown=60; 
+function settime(obj) { 
+    if (countdown == 0) { 
+        $("#band").removeClass("btn intro2").addClass("btn intro1");
+        $("#band").css("color","white");
+        //$("#band").css("float","right");
+        obj.removeAttribute("disabled");    
+        obj.value="获取验证码";
+        countdown = 60; 
+        return;
+    } else { 
+        $("#band").removeClass("btn intro1").addClass("btn intro2");
+        $("#band").css("color","white");//  $("#band").css("float","right");
+        obj.setAttribute("disabled", true); 
+        obj.value="重新发送(" + countdown + ")"; 
+        countdown--; 
+    } 
+setTimeout(function() { 
+    settime(obj) }
+    ,1000) 
+}
+
+
+function sms(obj){
+  //alert(obj.value);
+   var mobile = $("#tel").val();
+if(obj.value=="重新发送(60)"&&mobile!=""){
+     alert("验证码已发送");
+    
+   
+        var url = checkMSM+"";
+
+        if(mobile == ''){
+        }else{
+           // alert("ajax");
+          $.ajax({
+            type : "POST",
+            url : url,
+            data : "mobile="+mobile+"&moban=126639",
+            dataType : "json",
+            success : function(data){
+                alert("9999999999");
+                //alert(data.data);
+               // hiddenCode = data.hidenCode + "";
+            }
+          });
+          }
+
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+  </script>
+<style>
+.intro1
+{ 
+background:#F39700;
+color:white;
+float:right; 
+}
+
+.intro2
+{ 
+background:#696969;color:white;float:right; 
+}
+.div1 {
+	float: left;
+	height: 41px;
+	background: #f5696c;
+	width: 144px;
+	position: relative;
+}
+
+.div2 {
+	text-align: center;
+	padding-top: 12px;
+	font-size: 15px;
+	font-weight: 800
+}
+
+.inputstyle {
+	width: 144px;
+	height: 41px;
+	cursor: pointer;
+	font-size: 30px;
+	outline: medium none;
+	position: absolute;
+	filter: alpha(opacity = 0);
+	-moz-opacity: 0;
+	opacity: 0;
+	left: 0px;
+	top: 0px;
+}
+</style>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top navx"
+		role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="col-xs-2"></div>
+				<div class="col-xs-8">
+					<p class="navtext text-center">信息确认</p>
+				</div>
+				<div class="col-xs-2"></div>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container-fluid mar-top50">
+		<div class="row mar-top15">
+			<div class="col-xs-12">
+				<form  method="POST"
+					action="index.php?c=product&m=attend"  enctype ="multipart/form-data" runat="server">
+
+					<div class="form-group">
+						<input type="hidden" class="form-control" name="proid"
+							value="{$proid}">
+					</div>
+	<div class="form-group col-xs-12">
+						<label for="exampleInputEmail1">证件号码</label>
+						 <input type="text"
+							class="form-control" placeholder="申请人有效的身份证号码" name="num" id="ddd">
+					</div>
+				
+					<div class="form-group col-xs-12">
+						<label for="exampleInputEmail1">姓名 </label> 
+						<input type="text"
+							class="form-control" placeholder="请输入真实的申请人姓名"  name="name" id="ccc">
+					</div>
+					<div class="form-group col-xs-12" >
+						<label for="exampleInputEmail1">手机号码 </label>
+						<input type="text"
+							class="form-control"  placeholder="请输入申请人手机号码" name="tel" id="tel" >
+					</div>
+						<div class="form-group col-xs-7">
+						
+						<input type="text"  class="form-control" placeholder="验证码" name="yanzhengma" id="ddd">
+					  </div>
+				      <div class="form-group  col-xs-4" style="float:right">
+                <input class="btn intro1" type="button"  onclick="settime(this);sms(this);" name="band" id="band" value="获取验证码" ></div>
+         
+  
+                   <br><br><br><br>
+					
+					
+	      <div class="form-group col-xs-12" >
+						<label for="exampleInputEmail1"><font color=red >*请确认填写信息真实有效,否则将影响到您的审核结果</font></label>
+						
+					</div>
+				
+
+					<br><br>
+					<center>
+						 <input class="btn btn-lg" type="submit" style="background:#F39700;color:white"   value="确&nbsp;&nbsp;认&nbsp;&nbsp;申&nbsp;&nbsp;请">
+					</center>
+				</form>
+			</div>
+		</div>
+	</div>
+<br>
+</body>
+</html>
+
+

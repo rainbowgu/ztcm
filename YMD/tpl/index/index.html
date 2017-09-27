@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link href="public/css/bootstrap.min.css" rel="stylesheet">
+<link href="public/css/style.css" rel="stylesheet">
+<script src="public/js/jquery-2.1.4.min.js"></script>
+<script src="public/js/bootstrap.min.js"></script>
+<script src="public/js/form.js"></script>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,user-scalable=no">
+</head>
+<style type="text/css">
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive a>img
+	{
+	//height: 180px;
+}
+
+.carousel {
+	margin-bottom: 15px;
+	
+}
+
+.thumbnail {
+	border-color: #22c5a6;
+}
+
+h4 {
+	font-family: "SimHei";
+}
+
+.phone {
+	font-size: 12px;
+	color: #ff0000;
+}
+
+.navbar-inner {
+	background-color: #22c5a6;
+}
+</style>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top navx"
+		role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="col-xs-2 navbar-left rollback">
+					<a href=""><span class="glyphicon glyphicon-chevron-left"
+						aria-hidden="true"></span></a>
+				</div>
+				<div class="col-xs-8">
+					<p class="navtext text-center">首&nbsp;&nbsp;页</p>
+				</div>
+				<div class="col-xs-2 navbar-right">
+					<a href=""> <!--  img class="icon-navright"src="public/img/usercenter.png" -->
+					</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!--活动轮播图-->
+	<div id="carousel-example-generic " class="mar-top50 carousel slide"
+		data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators ">
+			<li data-target="#carousel-example-generic" data-slide-to="0"
+				class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			<!-- li data-target="#carousel-example-generic" data-slide-to="3"></li> -->
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active"
+				style="background: url(http://ztcm2016.oss-cn-hangzhou.aliyuncs.com/ymd/gyh/img/1.jpg); background-size: cover; ">
+				<a href="#"> <img  src="http://ztcm2016.oss-cn-hangzhou.aliyuncs.com/ymd/gyh/img/1.jpg" alt="...">
+					<div class="carousel-caption">
+						<h3>
+						</h3>
+					</div>
+				</a>
+			</div>
+
+	<!--div class="item active"
+				style="background: url(public/img/banner1.jpg); background-size: cover; ">
+				<a href="#"> <img  src="public/img/banner1.jpg" alt="...">
+					<div class="carousel-caption">
+						
+					</div>
+				</a>
+			</div-->
+			<div class="item"
+				style="background: url(http://ztcm2016.oss-cn-hangzhou.aliyuncs.com/ymd/gyh/img/2.jpg); background-size: cover;">
+				<a href="#"> <img src="http://ztcm2016.oss-cn-hangzhou.aliyuncs.com/ymd/gyh/img/2.jpg" alt="...">
+					<div class="carousel-caption">
+						
+					</div>
+				</a>
+			</div>
+			
+			
+			<div class="item"
+				style="background: url(http://ztcm2016.oss-cn-hangzhou.aliyuncs.com/ymd/gyh/img/3.jpg); background-size: cover;">
+				<a href="#"> <img src="http://ztcm2016.oss-cn-hangzhou.aliyuncs.com/ymd/gyh/img/3.jpg" alt="...">
+					<div class="carousel-caption">
+						
+					</div>
+				</a>
+			</div>
+			
+			
+			<!--div class="item"
+				style="background: url(public/img/banner2.jpg); background-size: cover;">
+				<a href=""> <img src="public/img/banner2.jpg" alt="...">
+					<div class="carousel-caption">
+						<h3></h3>
+					</div>
+				</a>
+			</div-->
+			
+			
+		</div>
+		<!-- Controls -->
+		<!--  a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>-->
+	</div>
+
+
+	<div class="indexbg">
+		{foreach from=$product key=num item="v" name=elementName}
+		<div class="divfull">
+			<a href="index.php?c=product&m=detail&id={$v.id}"><img
+				src="public/upimg/{$v.zt_pro_firstimg}" alt="..."
+				class="img-responsive center-block"></a>
+		</div>
+		{/foreach} {include file="public/footer.html"}
+	</div>
+<br><br><br><br><br>
+
+
+
+</body>
+</html>

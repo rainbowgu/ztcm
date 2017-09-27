@@ -1,0 +1,16 @@
+<button onclick="javascript:location.href='index.php?c=boss&m=insertproduct'">发布新产品</button>
+<button onclick="javascript:location.href='index.php?c=boss&m=orderpass'">审核</button>
+
+<button onclick="javascript:location.href='index.php?c=boss&m=tixian'">提现申请处理</button>
+{foreach from=$proinfo key=num  item="v" name=elementName}
+<div >
+<span>{$v['id']}</span>
+<span>{$v['zt_pro_title']}</span>
+
+
+
+<button onclick="javascript:location.href='index.php?c=boss&m=xiugai&id={$v['id']}'">修改</button>
+<!--button onclick="javascript:location.href='index.php?c=boss&m=shenhefail&id={$v['id']}'">删除</button-->
+
+</div>
+{/foreach}

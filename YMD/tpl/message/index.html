@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link href="public/css/bootstrap.min.css" rel="stylesheet">
+<link href="public/css/style.css" rel="stylesheet">
+<script src="public/js/jquery-2.1.4.min.js"></script>
+<script src="public/js/bootstrap.min.js"></script>
+<script src="public/js/form.js"></script>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,user-scalable=no">
+</head>
+<style type="text/css">
+body {
+	background-color: #e8e8e8;
+}
+
+.thumbnail .caption {
+	padding: 0;
+}
+
+.thumbnail {
+	margin-bottom: 0;
+	border: none;
+	border-right: 1px solid #ddd;
+}
+ .head{
+	background:#e9eaea ; color:#e9eaea
+  }
+</style>
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top navx"
+		role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="col-xs-2 navbar-left"></div>
+				<div class="col-xs-8">
+					<p class="navtext text-center">消息</p>
+				</div>
+				<div class="col-xs-2 navbar-right">
+					<a href=""> <img class="icon-navright"
+						src="public/img/index.png">
+					</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+	
+	
+	<volist name="userinfo" id="vol">
+	
+
+	<div class="container-fluid">
+		<div class="row mar-top15">
+			<div class="panel panel-default panelx">
+				<div class="list-group">
+					<table class="table table-condensed">
+	{foreach from=$messinfo key=num item="v" name=elementName}
+	   {if $v.id%2==0 }
+		<tr class="info">
+	   {/if}
+	    {if $v.id%2==1 }
+		<tr class="active">
+	   {/if}
+	  
+
+	        <td>{$v.zt_mess_title}</td>
+	        
+			<td>{$v.zt_mess_content}</td>
+			<td>{$v.zt_mess_datetime}</td>
+			
+		</tr>
+		{/foreach}
+</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	</volist>{include file="public/footer.html"}
+</body>
+</html>
+
+
+

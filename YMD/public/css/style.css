@@ -1,0 +1,228 @@
+body{
+	font-family: "Microsoft YaHei";
+}
+/*间隔的增加和去除*/
+.mar-ctr{
+  margin:0 auto;
+  padding-bottom: 10px;
+}
+.mar-top15{
+	margin-top: 15px;
+}
+.mar-top50{
+	margin-top: 50px;
+}
+.mar-bot35{
+	margin-bottom: 35px;
+}
+.mar-lft10{
+	margin-left: 10px;
+}
+.mar-lft15{
+  margin-left: 15px;
+}
+.mar-rgt10{
+	margin-right: 10px;
+}
+.mar-rgt15{
+	margin-right: 15px;
+}
+.padnone{
+  padding: 0;
+}
+.btnmarlt15{
+  margin-left: 15px;
+}
+/*导航部分*/
+.rollback{
+    margin-top: 15px;
+}
+.rollback a{
+	color: #fff;
+}
+.navtext{
+    color: #fff;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.navbar{
+	border: none;
+}
+.navbar-default{
+	background-color: #EA5414;
+}
+
+.navbar-fixed-bottom{
+	background-color: #e9eaea;
+}
+.iconc {
+	 margin-top: 15px;
+     width: 40px;
+     height:40px;
+}
+.icone{
+	 margin-top: 7px;
+     width: 110px;
+     height:40px;
+}
+.iconb {
+	 margin-top: 7px;
+     width: 40px;
+     height:40px;
+}
+.icon {
+	 margin-top: 5px;
+     width: 40px;
+     height:40px;
+}
+.iconp{
+    margin-top: 2px;
+    font-size: 12px;
+}
+.icona{
+	 margin-top: 0px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.icon-navright{
+    width: 32px;
+    height: 32px;
+    margin-top: 8px;
+ }
+ .navx{
+		margin-bottom: 0;
+}
+.minhightnone{
+  min-height: 0;
+}
+/*价格*/
+.price{
+    	color: #ff0000;
+    	font-size: 14px;
+}
+.totalprice p{
+	margin-left: 15px;
+	font-size: 20px;
+}
+.totalprice span{
+	color: #ff0000;
+}
+/*购物车及订单确认*/
+.cartpic{
+	width: 100px;
+	height: 100px;
+}
+.num{
+	color: #000;
+}
+.padlfnone{
+	padding-left: 0;
+}
+.total{
+  font-size: 16px;
+}
+.total span{
+  color: #f00;
+}
+/*活动内容*/
+.eventpic{
+  width: 100%;
+}
+.editor{
+  margin-left: 15px;
+}
+.eventcont{
+  margin-top: 10px;
+  text-indent: 2em;
+}
+.eventname{
+  font-size: 18px;
+}
+.eventinfo p{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*商店审核*/
+.shoppic{
+  width: 100%;
+}
+.shoptext p{
+  font-size: 18px;
+}
+/*个人中心*/
+.headpic{
+	width: 80px;
+	height: 80px;
+	margin-top: 15px;
+}
+.panelx{
+	border: none;
+	margin-bottom: 0;
+}
+
+.divfull{
+	background: #ffffff;
+	 margin-left: -15px;
+    margin-right: 0px;
+   margin-top: 8px;
+}
+
+.head{
+	width: 100%;
+	height: 150px;
+	background-color: #22c5a6;
+}
+.username{
+	color: #fff;
+	margin-top: 15px;
+	font-size: 18px;
+}
+.order img{
+  width: 28px;
+  height: 28px;
+  margin-top:5px;
+  margin-bottom: 5px;
+}
+.order p{
+  text-align: center;
+  margin-bottom: 0;
+}
+.glyphicon-user,.glyphicon-globe,.glyphicon-home,.glyphicon-list-alt,.glyphicon-th-list,
+.glyphicon-wrench,.glyphicon-gift,.glyphicon-yen,.glyphicon-bullhorn,.glyphicon-edit{
+  top: 2px;
+  margin-right: 8px;
+}
+.glyphicon-user,.glyphicon-wrench{
+  color: #0d82ff;
+}
+.glyphicon-globe,.glyphicon-list-alt,.glyphicon-bullhorn{
+  color: #24be61;
+}
+.glyphicon-th-list,.glyphicon-gift,.glyphicon-edit{
+  color: #f05e75;
+}
+.glyphicon-home,.glyphicon-yen{
+  color: #fd664b;
+}
+/*个人资料*/
+.mypic{
+  height: 80px;
+}
+.mypic span{
+  margin-top: 20px;
+}
+/*列表内容溢出处理*/
+li{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.btnmar{
+	margin-left: 3px;
+}
+label{
+	font-size: 16px;
+	font-weight: normal;
+}

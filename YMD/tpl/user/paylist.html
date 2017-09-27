@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
+    <script src="public/js/jquery-2.1.4.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/form.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+</head>
+<style type="text/css">
+  body{
+    background-color: #ffffff;
+  }
+  .thumbnail .caption{
+    padding: 0;
+  }
+  .thumbnail{
+    margin-bottom: 0;
+    border:none;
+    border-right:1px solid #ddd;
+  }
+  .head{
+  background:#e9eaea ; color:#e9eaea
+  }
+
+</style>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navx" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header ">
+      <div class="col-xs-2 navbar-left"></div>
+      <div class="col-xs-8">
+        <p class="navtext text-center">个人中心</p>
+      </div>
+      <div class="col-xs-2 navbar-right">
+        <a href="index.php?c=index&m=index">
+          <img class="icon-navright"src="public/img/index.png">
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <div class="container-fluid mar-top50 head " style="background-image:url('public/img/headbg.jpg')">
+   <img class="headpic center-block img-circle" src=/>
+   <p class="username text-center"><font color="#717071"></font></p>
+  </div>
+
+  <div class="container-fluid">
+  
+
+    <div class="row mar-top15">
+      <div class="panel panel-default panelx">
+        <div class="list-group">
+
+{if $zfpaystatus eq 1}
+    <a href="index.php?c=user&m=payzfb" class="list-group-item">
+            <span class="glyphicon glyphicon glyphicon-user pull-left" aria-hidden="true"></span>
+            支付宝
+               <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+          </a>
+
+
+{else if $zfpaystatus eq 0}
+    <a href="index.php?c=user&m=payzfb" class="list-group-item">
+            <span class="glyphicon glyphicon glyphicon-user pull-left" aria-hidden="true"></span>
+             添加支付宝
+               <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+          </a>
+
+{/if}
+
+
+
+
+{if $bankstatus eq 1}
+      <a href="index.php?c=user&m=paybank" class="list-group-item">
+            <span class="glyphicon glyphicon glyphicon-th-list pull-left" aria-hidden="true"></span>
+            银行卡
+            <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+          </a>
+
+{else if $bankstatus eq 0}
+       <a href="index.php?c=user&m=paybank" class="list-group-item">
+            <span class="glyphicon glyphicon glyphicon-th-list pull-left" aria-hidden="true"></span>
+            添加银行卡
+            <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+          </a>
+{/if}
+      
+      
+
+
+
+      
+          
+
+
+        </div>
+      </div>
+    </div>
+<br><br><br><br>
+  
+  
+  
+  </div>
+  {include file="public/footer.html"}
+</body>
+</html>
+
+

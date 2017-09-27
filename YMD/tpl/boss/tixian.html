@@ -1,0 +1,43 @@
+ <html>
+
+<body>
+{foreach from=$fundinfo key=num  item="v" name=elementName}
+<div >
+<span>{$v['zt_money']}</span>
+
+{if $v['zt_tixiantype']  eq 1 }
+支付宝
+{else if $v['zt_tixiantype']  eq 2 }
+银行卡
+{/if}
+<span>{$v['zt_tixiannum']}</span>
+
+<span>{$v['id']}</span>
+
+<span>{$v['zt_datetime']}</span>
+
+<button onclick="javascript:location.href='index.php?c=boss&m=tixiansuccess&id={$v.fundee}&userid={$v.zt_user_id}'">提现成功</button>
+</div>
+{/foreach}
+
+<br><br><br><br><br>
+
+{foreach from=$fundinfo2 key=num  item="v" name=elementName}
+<div >
+<span>{$v['user_e_num']}</span>
+
+<span>{$v['zt_username']}</span>
+
+<span>{$v['datetime']}</span>
+
+
+</div>
+{/foreach}
+
+
+
+</body>
+
+
+
+</html>

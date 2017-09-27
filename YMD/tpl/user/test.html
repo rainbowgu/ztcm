@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
+    <script src="public/js/jquery-2.1.4.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/form.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+</head>
+<style type="text/css">
+  
+.intro1
+{ 
+background:#F39700;color:white;float:right; 
+}
+
+.intro2
+{ 
+background:#696969;color:white;float:right; 
+}
+
+</style>
+<body>
+
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top navx" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-8">
+        <p class="navtext text-center">绑定手机</p>
+      </div>
+      <div class="col-xs-2">
+      </div>
+    </div>
+  </div>
+</nav>
+<script type='text/javascript'>
+    var checkMSM = "../Components/SMS/SendTemplateSMS.php";
+    var hiddenCode = "";
+    var clicktag = 0;
+    $(function() {
+      $('#band').click(function(){
+         //alert("band");
+      if (clicktag == 0) {
+
+
+        clicktag = 1;
+         $(this).removeClass("class").addClass("btn intro2");
+        //$(this).addClass("btn-warining");
+        setTimeout(function () { clicktag = 0 }, 6);
+        var mobile = $("#tel").val();
+        var url = checkMSM+"";
+
+        if(mobile == ''){
+        }else{
+           // alert("ajax");
+          $.ajax({
+            type : "POST",
+            url : url,
+            data : "mobile="+mobile+"&moban=126637" ,
+            dataType : "json",
+            success : function(data) {
+                //alert("9999999999");
+                //alert(data.data);
+               // hiddenCode = data.hidenCode + "";
+            }
+          });
+          }
+
+
+          } 
+        }); 
+  });
+
+
+
+  </script>
+
+
+  <div class="container-fluid mar-top50">
+    <div class="row mar-top15">
+      <div class="col-xs-12">
+        <form  method="POST"
+          action="index.php?c=weixin&m=telsure"  enctype ="multipart/form-data" runat="server">
+
+        
+
+        
+       
+          <div class="form-group col-xs-12" >
+            <label for="exampleInputEmail1">手机号码: </label>
+            <input type="text"
+              class="form-control" placeholder="请输入绑定的手机号" name="tel" id="tel" >
+          </div>
+            <div class="form-group col-xs-8">
+            
+            <input type="text"  class="form-control" placeholder="验证码"  name="yanzhengma" id="yanzhengma">
+            </div>
+          
+          <div class="form-group  col-xs-4">
+          <button class="btn intro1" type="button" name="band" id="band" value="获取验证码" >获取验证码</button></div>
+         
+  
+      
+
+        
+
+          <br><br>
+          <center>
+             <input class="btn  btn-lg" type="submit" style="background:#F39700;color:white"   value="确&nbsp;&nbsp;认&nbsp;&nbsp;绑&nbsp;&nbsp;定">
+          </center>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--div class="container-fluid mar-top50">
+  <div class="row mar-top15">
+    <div class="col-xs-12">
+      <form  method="POST" action="index.php?c=weixin&m=telsure">
+        <div class="form-group">
+         <div class="col-xs-12"> <label for="exampleInputEmail1">手机号</label></div>
+       </div>
+     <div class="form-group">
+         <div class="col-xs-12">  <input type="text" placeholder="手机号" class="form-control" name="tel" id="tel"></div>
+     </div>
+        <div class="form-group">
+        
+          <div class="col-xs-6"> <input type="text" placeholder="验证码"  class="form-control" name="yanzhengma" id="yanzhengma"></div>
+        
+        </div>
+
+    <div class="form-group">
+  <div class="col-xs-6">
+    <button class="btn intro1" type="button" name="band" id="band" value="获取验证码" >获取验证码</button></div>
+         
+  </div>
+
+       <div class="form-group">
+      <center><input class="btn intro1" type="submit"  value="绑&nbsp;&nbsp;&nbsp;&nbsp;定">
+         </center>
+         </div>
+         </form>
+    </div>
+  </div>
+</div-->
+
+</body>
+</html>

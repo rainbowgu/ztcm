@@ -1,0 +1,26 @@
+<html>
+<form  method="POST" action="index.php?c=boss&m=shenhe"  enctype ="multipart/form-data" runat="server">
+金额:
+<input type="text" name="num" /><br>
+天数:
+<input type="text" name="days" /><br>
+<input type="hidden" name="upstatus" value={$upstatus} ><br>
+ 
+{if $upstatus eq 2}
+{$Uptrueinfo.zt_username}
+邀请人金额:
+<input type="text" name="fathernum" /><br>
+{/if}
+
+
+
+
+<input type="hidden" name="id" value={$userid}>
+
+<input type="submit" value="审核成功"/>
+
+
+
+
+</form>
+</html>

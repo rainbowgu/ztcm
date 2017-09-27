@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ueditor demo</title>
+</head>
+
+<body><form id="proaddact" method="POST" action="index.php?c=boss&m=insertproduct" enctype="multipart/form-data">
+       
+    <!--
+        <div class="form-group">
+          <label for="exampleInputEmail1">公司名</label>
+          <input type="text" class="form-control" name="company" id="company">
+        </div>
+         -->
+        <div class="form-group">
+          <label for="exampleInputPassword1">图片</label>
+           <input type="file" name="pictures[]" />700*300
+        </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">标题</label>
+          <input type="text" class="form-control" name="title" id="title">
+        </div>
+      <div class="form-group">
+          <label for="exampleInputPassword1">简单介绍</label>
+          <input type="text" class="form-control" name="simplecontent" id="simplecontent">
+        </div>
+        <script id="container" name="news_content" type="text/plain">
+            这里写你的初始化内容
+        </script>
+          
+          <div class="form-group">
+          <label for="exampleInputPassword1">面向区域</label>
+          <input type="text" class="form-control" name="address" id="address">
+        </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">联系电话</label>
+          <input type="text" class="form-control" name="tel" id="tel">
+        </div>
+              <div class="form-group">
+          <label for="exampleInputPassword1">公司简介</label>
+          <input type="text" class="form-control" name="companycontent" id="companycontent">
+        </div>
+                <div class="form-group">
+          <label for="exampleInputPassword1">返利金额</label>
+          <input type="text" class="form-control" name="goal" id="goal">
+        </div>
+        <input class="btn btn-primary" type="submit"  value="发布">
+        <a class="btn btn-default" href="index.php?c=index&m=login" role="button">保存</a>
+</form>
+
+    <!--  form action="server.php" method="post">
+      
+        <script id="container" name="content" type="text/plain">
+            这里写你的初始化内容
+        </script>
+    </form>-->
+    
+    
+    
+     <!-- 配置文件 -->
+    <script type="text/javascript" src="ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+    
+        var editor = UE.getEditor('container',{
+        
+        	   
+        	    "imageUrlPrefix": "http://localhost", /* 图片访问路径前缀 */
+        	    "imagePathFormat": "http://localhost",
+        	    "imageFieldName": "upfile",
+        	    "imageMaxSize": 2048,
+        	    "imageAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"]
+        	  
+        
+        });
+    </script>
+</body>
+
+</html>

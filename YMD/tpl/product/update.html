@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link href="public/css/bootstrap.min.css" rel="stylesheet">
+<link href="public/css/style.css" rel="stylesheet">
+<script src="public/js/jquery-2.1.4.min.js"></script>
+<script src="public/js/bootstrap.min.js"></script>
+<script src="public/js/form.js"></script>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,user-scalable=no">
+
+<script language="javascript">
+	function insertTitle(path) {
+		var test1 = path.lastIndexOf("/"); //对路径进行截取
+		// alert(test1);
+		var test2 = path.lastIndexOf("\\"); //对路径进行截取
+		var test = Math.max(test1, test2);
+		//alert(test);
+		if (test < 0) {
+			var a = path;
+			alert(a);
+			document.getElementById("gu").value = path;
+
+			var label = document.getElementById("gu");
+			label.innerText = path;
+		} else {
+
+			//alert('123');
+			var label = document.getElementById("gu");
+			label.innerText = path.substring(test + 1);
+			//alert(path.substring(test + 1));
+			// $("#id").html(path.substring(test + 1)); 
+			//document.getElementById("gu").value = path.substring(test + 1); //赋值文件名
+		}
+	}
+
+	function setImagePreview(avalue) {
+		//input
+		var docObj = document.getElementById("doc");
+		//img
+		var imgObjPreview = document.getElementById("preview");
+		//div
+		var divs = document.getElementById("localImag");
+		var c = document.getElementById("fileInputContainer");
+		if (docObj.files && docObj.files[0]) {
+			//height: 120px;
+			//background: url("public/img/u60.png");
+			//position: relative;
+			//width: 120px;
+			//火狐下，直接设img属性
+			imgObjPreview.style.display = 'block';
+			imgObjPreview.style.width = '120px';
+			imgObjPreview.style.height = '120px';
+			//imgObjPreview.src = docObj.files[0].getAsDataURL();
+			//火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+			imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+			//alert(window.URL.createObjectURL(docObj.files[0]));
+
+			//c.style.background-image = docObj.files[0];
+			/*var a=window.URL.createObjectURL(docObj.files[0]);
+			c.style.height='120px';
+			c.style.position='relative';
+			c.style.width='120px';
+			c.style.backgroundImage=window.URL.createObjectURL(docObj.files[0]);
+			alert(a);
+			 console.log(a);*/
+
+		} else {
+			/*	//IE下，使用滤镜
+				docObj.select();
+				var imgSrc = document.selection.createRange().text;
+				var localImagId = document.getElementById("localImag");
+				//必须设置初始大小
+				localImagId.style.width = "100px";
+				localImagId.style.height = "100px";
+				//图片异常的捕捉，防止用户修改后缀来伪造图片
+				try {
+					localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+					localImagId.filters
+							.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+				} catch (e) {
+					alert("您上传的图片格式不正确，请重新选择!");
+					return false;
+				}
+				imgObjPreview.style.display = 'none';
+				document.selection.empty();*/
+		}
+		return true;
+	}
+</script>
+</head>
+
+
+
+<style>
+.fileInputContainer1 {
+	height: 60px;
+	background: url("public/img/u60.jpg");
+	position: relative;
+	width: 100px;
+}
+
+.fileInput {
+	height: 80px;
+	font-size: 60px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	cursor: pointer;
+}
+
+.div1 {
+	float: left;
+	height: 41px;
+	background: #f5696c;
+	width: 144px;
+	position: relative;
+}
+
+.div2 {
+	text-align: center;
+	padding-top: 12px;
+	font-size: 15px;
+	font-weight: 800
+}
+
+.inputstyle {
+	width: 144px;
+	height: 41px;
+	cursor: pointer;
+	font-size: 30px;
+	outline: medium none;
+	position: absolute;
+	filter: alpha(opacity = 0);
+	-moz-opacity: 0;
+	opacity: 0;
+	left: 0px;
+	top: 0px;
+}
+</style>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top navx"
+		role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="col-xs-2"></div>
+				<div class="col-xs-8">
+					<p class="navtext text-center">上传1凭证</p>
+				</div>
+				<div class="col-xs-2"></div>
+			</div>
+		</div>
+	</nav>
+	<br />
+	<br />
+	<div class="container-fluid mar-top50">
+		<div class="row mar-top15">
+			<div class="col-xs-12">
+
+
+
+
+
+				<form id="Upload" method="POST"
+					action="index.php?c=product&m=updateorder"
+					enctype="multipart/form-data" runat="server">
+	          <div class="form-group">
+						<label for="exampleInputEmail1">订单号</label> <input type="text"
+							class="form-control" name="num" id="ccc">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">手机号码</label> <input type="text"
+							class="form-control" readonly="readonly"  value="{$orderinfo.zt_tel}" name="tel" id="ddd">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">证件号码</label> <input type="text"
+							class="form-control" readonly="readonly"  value="{$orderinfo.zt_usernum}" name="num" id="ddd">
+					</div>
+					<div class="form-group">
+						<input type="hidden" class="form-control" name="proid"
+							value="{$proid}">
+					</div>
+
+<div>
+
+                         <label for="exampleInputEmail1">上传凭证</label> 
+					<div class="form-group " >
+						<div align="center" style="padding-top: 10px; height: 100px; background-image: url('public/img/u60.jpg'); position: relative; width: 100px;"
+							class="fileInputContainer11" id="fileInputContainer">
+							<div>
+								<input  type="file" name="pictures[]" id="doc" class="fileInput"
+									multiple="multiple" style="width: 150px; height: 20px; "
+									onchange="javascript:setImagePreview();if(this.value)insertTitle(this.value);" />
+							</div>
+							<div id="localImag" class="fileimg"
+								style="border: none; margin-top: -20px; margin-bottom:-50px;">
+								<img id="preview" src="" width="0" height="0"
+									style="display: none; border: none;" />
+
+							</div>
+						</div>
+
+					</div>
+
+
+					<div class="form-group">
+						<label for="gu" id="gu"></label>
+					</div>
+					<div>
+
+
+					<!--div class="form-group ">
+
+						<div class="fileInputContainer">
+						
+							<div class="fileInput">上传图片</div>
+							<input type="file" class="fileInput" name="pictures[]"
+								onChange="if(this.value)insertTitle(this.value);" />
+						</div>
+					</div-->
+
+
+	     <div class="form-group">
+					<center>
+						<input class="btn btn-lg" style=" margin-top: 20px; background:#F39700;color:white" type="submit"
+							value="确&nbsp;认&nbsp;上&nbsp;传">
+					</center>	
+				</div>
+
+
+				</form>
+			
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+

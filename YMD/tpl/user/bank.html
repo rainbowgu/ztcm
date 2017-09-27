@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="public/css/style.css" rel="stylesheet">
+  <script src="public/js/jquery-2.1.4.min.js"></script>
+  <script src="public/js/bootstrap.min.js"></script>
+  <script src="public/js/form.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <script type="text/javascript">
+
+
+
+
+    $(function(){
+      $('#checkbox').click(function(){
+
+
+
+       var num = $("#num").val();
+       var address = $("#address").val();
+       var bank = $("#bank").val();
+       var name = $("#name").val();
+       var bankstatus=$("#bankstatus").val();
+       var type = $("#type").val();
+       var bankid = $("#bankid").val();
+       var checkMSM = "index.php?c=user&m=jiaoyiajax";
+       var url = checkMSM+"";
+if(num == ""  ){
+      alert("帐号不能为空");
+      return false;
+   }
+if(address == ""  ){
+      alert("开户行不能为空");
+      return false;
+   }
+   if(bank == ""  ){
+      alert("银行名称不能为空");
+      return false;
+   }
+   if(name == ""  ){
+      alert("收款人不能为空");
+      return false;
+   }
+
+
+//alert(bankid);
+if($('input[name="checkbox"]').prop("checked"))
+{
+//alert("hello");
+
+  $.ajax({
+    type : "POST",
+    url : url,
+    data : "type="+type+"&bankid="+bankid+"&num="+num+"&address="+address+"&bank="+bank+"&bankstatus="+bankstatus+"&name="+name,
+    dataType : "json",
+    success : function(data){
+               //alert("9999999999");
+               alert(data);
+             }
+           });
+}
+          });
+
+
+    })
+
+
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top navx" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="col-xs-2">
+        </div>
+        <div class="col-xs-8">
+          <p class="navtext text-center">修改银行卡信息</p>
+        </div>
+        <div class="col-xs-2">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid mar-top50 background-color: #ffffff;">
+   <div class="row mar-top15">
+    <div class="col-xs-12">
+      <form id="chgbank" method="POST" action="index.php?c=user&m=paybank" enctype="multipart/form-data">
+
+
+        <div class="form-group">
+
+          <label for="username">收款人真实姓名<font color="red">*</font></label>
+          <input type="text" class="form-control" name="name" id="name" placeholder={$bankinfo.zt_realname}>
+        </div>
+
+        <div class="form-group">
+          <label for="username">银行名称<font color="red">*</font>
+          </label>
+          <input type="text" class="form-control" name="bank" id="bank" placeholder={$bankinfo.zt_bankname}>
+        </div>
+
+        <div class="form-group">
+          <label for="userage">开户行地址<font color="red">*</font></label>
+          <input type="text" class="form-control" name="address" id="address" placeholder={$bankinfo.zt_bankaddress}>
+        </div>
+        <div class="form-group">
+          <label for="userphone">银行卡卡号<font color="red">*</font></label>
+          <input type="text" class="form-control" name="num" id="num" placeholder={$bankinfo.zt_banknum}>
+        </div>
+        <input type="hidden" class="form-control" name="bankstatus" id="bankstatus" value={$bankstatus}>
+        <input type="hidden" class="form-control" name="bankid" id="bankid" value={$bankid}>
+        <input type="hidden" class="form-control hidden" name="type"  id="type" value="bank">
+
+
+
+        {if  $bankstatus eq 0}
+        <div class="form-group">
+          <label>
+             {if $jiaoyistatus eq 0}
+      <input type="checkbox" id="checkbox"  name="checkbox"  >选为默认交易方式
+    {/if}
+      {if $jiaoyistatus eq 1}
+      <input type="checkbox" id="checkbox"  name="checkbox"  checked="true">选为默认交易方式
+    {/if}
+          </label>
+
+
+        </div>
+        <center>
+          <input class="btn btn-lg" type="submit"  style="background:#F39700;color:white" value="添&nbsp;&nbsp;&nbsp;&nbsp;加">
+          {else if  $bankstatus eq 1}
+          <div class="form-group">
+            <label>
+               {if $jiaoyistatus eq 0}
+      <input type="checkbox" id="checkbox"  name="checkbox"  >选为默认交易方式
+    {/if}
+      {if $jiaoyistatus eq 1}
+      <input type="checkbox" id="checkbox"  name="checkbox"  checked="true">选为默认交易方式
+    {/if}
+            </label>
+
+
+          </div>
+
+          <center>
+            <input class="btn btn-lg" type="submit"  style="background:#F39700;color:white"  value="更&nbsp;&nbsp;&nbsp;&nbsp;新">
+            {/if}
+
+
+          </center>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+  {include file="public/footer.html"}
+</body>
+</html>
+

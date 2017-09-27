@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
+    <script src="public/js/jquery-2.1.4.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <script src="public/js/form.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navx" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="col-xs-2">
+      </div>
+      <div class="col-xs-8">
+        <p class="navtext text-center">提现申请</p>
+      </div>
+      <div class="col-xs-2">
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid mar-top50 ">
+
+    <div class="row mar-top15">
+      <div class="panel panel-default panelx">
+        <div class="list-group">
+    
+        {if $jiaoyistatus eq 1}
+
+         <div class="col-xs-10">
+                             <font style="font-size:16px;" >支付宝</font>
+           <br>
+                             <font style="font-size:16px;">帐号: {$zfbuserinfo.zt_zfpay}</font>
+          </div>
+        {else if $jiaoyistatus eq 2}
+         <div class="col-xs-10">
+                             <font style="font-size:16px;" >{$bankuserinfo["zt_bankname"]}</font>
+           <br>
+                             <font style="font-size:16px;">尾号为: {$num}</font>
+          </div>
+    
+
+   {/if}
+         
+       
+
+
+
+          
+          <!--  div class="col-xs-2">
+           <span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+          </div>-->
+         
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  
+
+	<div class="row mar-top15">
+		<div class="col-xs-12">
+      <form id="Atm" method="POST" action="index.php?c=fund&m=atm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">提现申请金额</label>
+          <input type="text" class="form-control" placeholder="当前可提取最大金额为{$totallast}"  name="num" id="num">
+        </div>
+        <input type="hidden" class="form-control" name="tixiantype"  value={$jiaoyistatus}>
+   {if $jiaoyistatus eq 1}
+         <input type="hidden" class="form-control"  name="tixiannum" value={$zfbuserinfo.zt_zfpay}>
+         {else if $jiaoyistatus eq 2}   
+ <input type="hidden" class="form-control"  name="tixiannum" value={$bankuserinfo.zt_banknum}>
+           {/if}
+       <center> <input class="btn"  style="background:#F39700;color:white"   type="submit" value="提现申请">
+        </center></form>
+    </div>
+	</div>
+	
+	
+	
+	
+</div>
+{include file="public/footer.html"}
+</body>
+</html>
